@@ -1,6 +1,6 @@
-const BOT_TOKEN = '';
+const BOT_TOKEN = '7344912628:AAHSSfYERM94uUUZ-6Isa9B1nCD9OMvzKKU';
         const CHAT_ID = '6868085389'; 
-        const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage7344912628:AAHSSfYERM94uUUZ-6Isa9B1nCD9OMvzKKU`;
+        const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
         document.addEventListener('DOMContentLoaded', (event) => {
             const myForm = document.getElementById('myForm');
